@@ -19,6 +19,27 @@ function logIn($username, $password){
     }
 }
 
+function redirectUnlogged()
+{
+    if(!checkLogin())
+    {
+      header("Location: login.php");
+      exit();
+    }
+}
+
+function checkLogin()
+{    
+    if(!isset($_SESSION['currentUser'])&&empty($_SESSION['currentUser']))
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+
+}
 function logOut($location)
 {
     $params = session_get_cookie_params();

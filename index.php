@@ -3,6 +3,7 @@
       ?>
       <?php 
         require 'includes.php';
+        redirectUnlogged();
       ?>
     
         <div class="container-fluid">
@@ -12,11 +13,11 @@
                 <h1 class="h2"><?php
                   if(isThisSessionSet(array("currentUser")))
                   {
-                    echo $_SESSION["currentUser"];
+                      echo $_SESSION["currentUser"];
                   }
                   else
                   {
-                    echo "Dashboard";
+                      echo "Dashboard";
                   }
                 ?></h1>
                 <div class="btn-toolbar mb-2 mb-md-0">

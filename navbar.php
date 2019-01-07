@@ -16,11 +16,22 @@
       <a class="nav-link" href="index.php">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="index.php">Add</a>
+      <a class="nav-link" href="income.php">Income</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="expense.php">Expense</a>
     </li>
     <li class="nav-item dropdown col">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        User
+        <?php
+          if(isset($_SESSION['currentUser'])&&!empty($_SESSION['currentUser']))
+          {
+            echo("$_SESSION[currentUser]");
+          }
+          else{
+            echo"User";
+          }
+        ?>
       </a>
       <div class="dropdown-menu">
       <?php
