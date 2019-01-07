@@ -1,0 +1,4 @@
+Upravljalec osebnih financ
+- Delal bom lokalno preko xampp
+- Upravljalec financ v smislu pregleda stroškov in podajanje statistik, ter pametnih izračunov, kako bi moral trošiti, kako dolgo da bi našparal x ipd.
+- Tehnične zahteve, dodajanje tednov, stroškov in beleženje navad uporabnika. Ciljam na oceno 9-10, odvisno od časa :)
