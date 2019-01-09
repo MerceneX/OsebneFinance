@@ -19,6 +19,33 @@ function logIn($username, $password){
     }
 }
 
+function removeExpenseByID($expenseID)
+{
+    $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+    $userID = getCurrentUserID($_SESSION['currentUser']);
+    $sql = "DELETE FROM izdatek WHERE fk_uporabnik = '$userID' and id = $expenseID";
+    $result = mysqli_query($db,$sql);
+    if (mysqli_query($db, $sql)) {
+        echo "SQL good";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($db);
+    }
+}
+
+function getCurrentUserID($sessionUser)
+{
+    $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+    $sql = "SELECT id FROM uporabnik WHERE username = '$sessionUser'";
+    $result = mysqli_query($db,$sql);
+    $user = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    if (mysqli_query($db, $sql)) {
+        return "$user[id]";
+        echo "SQL good";
+    } else {
+        return "Error: " . $sql . "<br>" . mysqli_error($db);
+    }
+}
+
 function redirectUnlogged()
 {
     if(!checkLogin())
